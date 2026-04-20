@@ -1,0 +1,12 @@
+# compiled output
+dist/
+node_modules/
+build/
+client/node_modules/
+servers/node_modules/
+client/dist/
+servers/dist/
+.next/
+out/
+.vercel
+*.tsbuildinfo
