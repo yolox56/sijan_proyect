@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 import { SignUpData } from '@/types/autentificacion';
+import { toast } from 'react-hot-toast';
+
 
 interface Props {
   onSignUp: (datos: SignUpData) => Promise<void>;
@@ -49,6 +51,7 @@ export default function SignUpForm({ onSignUp }: Props) {
       <button className="bg-[#283C2A] text-white py-2 rounded font-bold">
         Crear Cuenta
       </button>
+      
     </form>
   );
 }

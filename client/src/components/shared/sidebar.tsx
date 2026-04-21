@@ -59,14 +59,21 @@ export default function Sidebar() { // Corregido a Mayúscula (es un componente)
           
           <div className="border-t border-white/10 my-2"></div>
 
+         {/*
           <Link href="/login" className="flex items-center gap-3 p-3 hover:bg-[#832B56] rounded-xl transition-all">
             <LogIn size={20} /> <span>Login</span>
-          </Link>
+          </Link>*/}
           <Link href="/signup" className="flex items-center gap-3 p-3 border border-white/20 hover:bg-white/10 rounded-xl transition-all">
             <UserPlus size={20} /> <span>Sign Up</span>
           </Link>
 
-          {/* BOTÓN DE LOGOUT */}
+          
+          <div className="mt-4 border-t border-white/10 pt-4">
+            <Link href="/docs" className="flex items-center gap-3 p-3 text-gray-300 hover:text-white">
+              <FileText size={20} /> <span>Documentación PDF</span>
+            </Link>
+          </div>
+           {/* BOTÓN DE LOGOUT */}
           <button 
             onClick={logout}
             className="flex items-center gap-3 p-3 text-red-400 hover:bg-red-500/10 rounded-xl transition-all mt-auto"
@@ -74,12 +81,6 @@ export default function Sidebar() { // Corregido a Mayúscula (es un componente)
             <LogOut size={20} /> <span>Cerrar Sesión</span>
             
           </button>
-          
-          <div className="mt-4 border-t border-white/10 pt-4">
-            <Link href="/docs" className="flex items-center gap-3 p-3 text-gray-300 hover:text-white">
-              <FileText size={20} /> <span>Documentación PDF</span>
-            </Link>
-          </div>
         </nav>
       </aside>
     </>

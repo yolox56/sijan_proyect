@@ -17,6 +17,7 @@ export function useAutentificacion() {
       setLoading(true);
       setError(null);
       
+      // Aquí haces la llamada a tu API para autenticar al usuario
       const res = await apiFetch<AutentificacionResponse>('/autentificacion/login', {
      //await apiFetch('/users', {   
        method: 'POST',
@@ -58,6 +59,14 @@ export function useAutentificacion() {
         method: 'POST',
         body: JSON.stringify(datos),
       });
+      toast.success('¡Registro completado, puedes iniciar sesion!', {
+        duration: 5000,
+        style: {
+          background: '#283C2A',
+          color: '#DBDACE',
+          fontWeight: 'bold',
+        },
+      }); 
       // Después de registrarse, lo mandamos al login
       router.push('/login');
     } catch (err) {
