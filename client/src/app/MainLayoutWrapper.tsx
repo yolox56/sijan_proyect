@@ -12,7 +12,7 @@ export default function MainLayoutWrapper({ children }: { children: React.ReactN
   
   // --- ESTADOS ---
   const [estaLogueado, setEstaLogueado] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // 👈 Nuevo: Controla si el Sidebar está abierto
+  const [isOpen, setIsOpen] = useState(false); //  Nuevo: Controla si el Sidebar está abierto
 
   const rutasPublicas = ['/login', '/signup', '/docs'];
   const esRutaPublica = rutasPublicas.includes(pathname);
