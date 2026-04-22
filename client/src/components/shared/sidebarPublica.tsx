@@ -1,10 +1,12 @@
 'use client';
+import { useState } from 'react'; // Necesario para el estado
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LogIn, UserPlus, FileText, LayoutDashboard } from 'lucide-react';
+import { LogIn, UserPlus, FileText, LayoutDashboard, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function SidebarPublica() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen ] = useState(true); // Estado para controlar el ancho
 
   const enlaces = [
     { name: 'Iniciar Sesión', href: '/login', icon: LogIn },
@@ -13,14 +15,28 @@ export default function SidebarPublica() {
   ];
 
   return (
-    <aside className="w-64 bg-[#283C2A] border-r border-gray-200 flex flex-col h-screen sticky top-0 shadow-sm">
-      <div className="p-6">
-        <h2 className="text-[#283C2A] font-bold text-xl flex items-center gap-2">
-          <LayoutDashboard size={24} /> SIJAN out
+    <aside 
+      className={`bg-[#283C2A] border-r border-transparent flex flex-col h-screen sticky top-0 shadow-sm transition-all duration-300 ${
+      isOpen ? 'w-64' : 'w-20'
+      }`}
+    >
+      {/* Botón para colapsar/expandir */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="absolute -right-3 top-6 bg-[#6E795A] text-white rounded-full p-1  hover:scale-110 transition-transform"
+      >
+        { isOpen ? <ChevronLeft size={16} /> : <ChevronRight size={16} />}
+      </button>
+
+      <div className="p-4 py-18 overflow-hidden">
+        <h2 className="text-[#DBDACE] font-bold text-xl flex items-center gap-2 whitespace-nowrap">
+          <LayoutDashboard size={24} className="min-w-[24px]" /> 
+          { isOpen && <span>SIJAN otro</span>}
         </h2>
       </div>
+      {/* Lógica de navegación protegida (ejemplo) */}
 
-      <nav className="flex-1 px-4 space-y-2">
+      <nav className="flex-1 px-4 space-y-20 overflow-hidden">
         {enlaces.map((enlace) => {
           const Icono = enlace.icon;
           const activo = pathname === enlace.href;
@@ -28,26 +44,30 @@ export default function SidebarPublica() {
             <Link
               key={enlace.href}
               href={enlace.href}
+              title={!isOpen ? enlace.name : ''} // Tooltip cuando está colapsada
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                 activo 
-                  ? 'bg-[#283C2A] text-white shadow-md' 
-                  : 'text-gray-600 hover:bg-gray-200'
+                  ? 'bg-[#6E795A] text-white shadow-md' 
+                  : 'text-gray-300 hover:bg-[#6E795A]/20 hover:text-white'
               }`}
             >
-              <Icono size={20} />
-              <span className="font-medium">{enlace.name}</span>
+              <Icono size={20} className="min-w-[20px]" />
+              { isOpen && <span className="font-medium whitespace-nowrap">{enlace.name}</span>}
             </Link>
           );
         })}
       </nav>
       
-      <div className="p-4 border-t border-gray-200 text-center">
-        <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">v1.0.0 - Acceso Público</p>
+      <div className="p-4 border-t border-[#6E795A]/30 text-center overflow-hidden">
+        {isOpen ? (
+          <p className="text-xs text-gray-400 font-medium uppercase tracking-widest">v1.0.0 - Público</p>
+        ) : (
+          <span className="text-[10px] text-gray-400">v1</span>
+        )}
       </div>
     </aside>
   );
 }
-
 
 
 

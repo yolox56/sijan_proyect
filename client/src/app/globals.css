@@ -24,3 +24,29 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* --- AÑADE ESTO AL FINAL DEL ARCHIVO (FUERA DE CUALQUIER @LAYER) --- */
+
+/* 1. Estilo para Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #6E795A transparent;
+}
+
+/* 2. Estilo para Chrome, Edge y Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px !important; /* Forzamos el grosor */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #6E795A !important; /* Tu verde claro */
+  border-radius: 20px !important;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #8A9871 !important;
+}

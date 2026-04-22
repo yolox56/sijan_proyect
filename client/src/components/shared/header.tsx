@@ -33,10 +33,10 @@ export default function Header() {
 }, []);
 
   return (
-    <header className="w-full bg-[#283C2A] text-white shadow-md px-34 py-4 flex justify-between items-center">
+    <header className="w-full bg-[#283C2A] text-white shadow-md px-2 py-4 flex justify-between items-center">
       {/* LADO IZQUIERDO: Imagen/Logo */}
       <div className="flex items-center gap-4">
-        <div className="bg-transparent p-1 rounded-lg">
+        <div className="bg-transparent p-1 rounded-lg px-18">
            {/* Reemplaza '/logo.png' con la ruta real de tu imagen en /public */}
           <Image 
             src="/header_logo.png"
