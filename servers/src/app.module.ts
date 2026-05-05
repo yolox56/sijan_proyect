@@ -5,6 +5,10 @@ import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config'; // ConfigService lee el .env
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AutentificacionModule } from './autentificacion/autentificacion.module';
+import { BeneficiariosModule } from './beneficiarios/beneficiarios.module';
+import { AlumnosModule } from './alumnos/alumnos.module';
+import { AutorizadosModule } from './autorizados/autorizados.module';
+import { AsignacionModule } from './asignacion/asignacion.module';
 
 @Module({
   imports: [
@@ -31,6 +35,14 @@ import { AutentificacionModule } from './autentificacion/autentificacion.module'
     UsersModule,
 
     AutentificacionModule,
+
+    BeneficiariosModule,
+
+    AlumnosModule,
+
+    AutorizadosModule,
+
+    AsignacionModule,
   ],
 })
 export class AppModule {}
