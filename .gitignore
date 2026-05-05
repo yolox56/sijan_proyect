@@ -10,3 +10,12 @@ servers/dist/
 out/
 .vercel
 *.tsbuildinfo
+# Variables de entorno
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Carpetas de dependencias (por si acaso)
+node_modules/
